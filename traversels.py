@@ -1,31 +1,28 @@
 from binarytree import BinTree
 
-global order
-order = []
+def postOrder(tree, callback):
+    if tree.getLeft():
+        postOrder(tree.getLeft(), callback)
 
-def postOrder(tree):
-    if tree.getLeft() != None:
-        postOrder(tree.getLeft())
+    if tree.getRight():
+        postOrder(tree.getRight(), callback)
 
-    if tree.getRight() != None:
-        postOrder(tree.getRight())
+    callback(tree.getItem())
 
-    save.add(tree.getItem())
+def preOrder(tree, callback):
+    callback(tree.getItem())
 
-def preOrder(tree):
-    save.add(tree.getItem())
+    if tree.getLeft():
+        preOrder(tree.getLeft(), callback)
 
-    if tree.getLeft() != None:
-        preOrder(tree.getLeft())
+    if tree.getRight():
+        preOrder(tree.getRight(), callback)
 
-    if tree.getRight() != None:
-        preOrder(tree.getRight())
+def inOrder(tree, callback):
+    if tree.getLeft():
+        inOrder(tree.getLeft(), callback)
 
-def inOrder(tree):
-    if tree.getLeft() != None:
-        inOrder(tree.getLeft())
+    callback(tree.getItem())
 
-    save.add(tree.getItem())
-
-    if tree.getRight() != None:
-        inOrder(tree.getRight())
+    if tree.getRight():
+        inOrder(tree.getRight(), callback)
