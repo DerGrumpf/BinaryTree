@@ -52,7 +52,7 @@ class BinaryTree:
     __postOrderList = []
     __preOrderList  = []
     __inOrderList   = []
-    __root = None
+    __root = 0
 
     class Node:
         '''Inner tree node class'''
